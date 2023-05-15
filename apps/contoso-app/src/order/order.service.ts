@@ -15,6 +15,7 @@ export class OrderService {
     };
     const result = await this.neo4jService.write(query, params);
     console.log(result);
+
     return result;
   }
 
