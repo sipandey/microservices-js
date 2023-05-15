@@ -11,9 +11,18 @@ export class PaymentController {
     return this.paymentService.getHello();
   }
 
-  @MessagePattern({ cms: 'makeUPIPayment' })
-  makeUPIPayment() {
+  @MessagePattern({
+    cmd: 'makeUPIPayment',
+  })
+  makeUPIPayment({ orderId, orderTotal }) {
     //todo: initiate switch communication to make payment
+    console.log(
+      'Received payment request for order ' +
+        orderId +
+        ' with ' +
+        orderTotal +
+        '',
+    );
     return { status: 'success', message: 'Payment successful' };
   }
 
