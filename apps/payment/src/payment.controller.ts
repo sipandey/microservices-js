@@ -14,7 +14,7 @@ export class PaymentController {
   @MessagePattern({
     cmd: 'makeUPIPayment',
   })
-  makeUPIPayment({ orderId, orderTotal }) {
+  async makeUPIPayment({ orderId, orderTotal }) {
     //todo: initiate switch communication to make payment
     console.log(
       'Received payment request for order ' +
@@ -26,13 +26,13 @@ export class PaymentController {
     return { status: 'success', message: 'Payment successful' };
   }
 
-  @MessagePattern({ cms: 'makeCardPayment' })
+  @MessagePattern({ cmd: 'makeCardPayment' })
   makeCardPayment() {
     //todo: initiate card payment via master/visa/rpay
     return { status: 'success', message: 'Card payment successful' };
   }
 
-  @EventPattern({ cms: 'makeNetBankingPayment' })
+  @EventPattern({ cmd: 'makeNetBankingPayment' })
   makeNetBankingPayment() {
     //todo: initiate net-banking payment
   }

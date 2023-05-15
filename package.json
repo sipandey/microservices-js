@@ -6,6 +6,7 @@
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
+    "compodoc": "npx compodoc -p tsconfig.doc.json",
     "build": "nest build",
     "format": "prettier --write \"apps/**/*.ts\" \"libs/**/*.ts\"",
     "start": "nest start",
@@ -20,6 +21,7 @@
     "test:e2e": "jest --config ./apps/contoso-app/test/jest-e2e.json"
   },
   "dependencies": {
+    "@compodoc/compodoc": "^1.1.19",
     "@dbc-tech/nest-neo4j": "^0.5.0",
     "@nestjs/common": "^9.0.0",
     "@nestjs/config": "^2.3.1",
