@@ -1,21 +1,20 @@
 import { NestFactory } from '@nestjs/core';
 import { MicroserviceOptions, Transport } from '@nestjs/microservices';
-import { PaymentModule } from './payment.module';
+import { ShippingModule } from './shipping.module';
 
 async function bootstrap() {
   const app = await NestFactory.createMicroservice<MicroserviceOptions>(
-    PaymentModule,
+    ShippingModule,
     {
       transport: Transport.TCP,
       options: {
         host: 'localhost',
-        port: 3001,
+        port: 3002,
       },
     },
   );
-
   await app
     .listen()
-    .then(() => console.log('Payment Microservice is listening on port 3001'));
+    .then(() => console.log('Shipping MS started on port 3002'));
 }
 bootstrap();
